@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const date = require(__dirname + "/date.js")
 //const path = require('path');
-const appPort = 3000;
+// const appPort = 3000;
 const _ = require('lodash');
 
 
@@ -137,6 +137,12 @@ app.get('/:todoRequest', (req, res)=> {
     })
 })
 
-app.listen(appPort, ()=> {
-  console.log("The application is runnning")
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
+app.listen(t, ()=> {
+  console.log("The application is running")
 });
