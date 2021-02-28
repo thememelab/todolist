@@ -18,6 +18,7 @@ app.use(express.static("public"))
 
 // app set view engine
 app.set('view engine', 'ejs');
+
 mongoose.connect("mongodb+srv://memeTest:Test1234@cluster0.yeesb.mongodb.net/todolistDB", { useNewUrlParser: true });
 
 const itemsSchema = {
@@ -47,7 +48,6 @@ const List = mongoose.model("List" , listSchema)
 var items = []
 let workItems = []
 const defaultItems = [ item1, item2, item3 ]
-
 //Application routes
 app.get('/', (req,res)=> {
   Item.find({}, function(err, foundItems){
@@ -60,7 +60,6 @@ app.get('/', (req,res)=> {
           console.log("this was successfull")
         }
       })
-
       res.redirect("/")
     }
    else {
